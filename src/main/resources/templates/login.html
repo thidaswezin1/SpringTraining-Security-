@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post">
+<div th:if="${param.error}" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></div>
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+Email : <input type="email" name="name">
+Password : <input type="password" name="password">
+
+<input type="submit" value="Login">
+
+</form>
+<a href="/oauth2/authorization/google">Login with Google</a>
+</body>
+</html>
